@@ -1,0 +1,32 @@
+{
+  "name": "a11y-field-operations-case-study",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test:a11y": "playwright test a11y-tests/axe.spec.ts a11y-tests/keyboard-focus.spec.ts",
+    "test:a11y:gate": "playwright test a11y-tests/regression.spec.ts",
+    "test:voiceover": "playwright test a11y-tests/voiceover.spec.ts"
+  },
+  "dependencies": {
+    "@emotion/react": "11.14.0",
+    "@emotion/styled": "11.14.1",
+    "@mui/icons-material": "9.3.1",
+    "@mui/material": "9.3.1",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
+    "@guidepup/playwright": "0.19.1",
+    "@playwright/test": "1.62.1",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.4",
+    "@vitejs/plugin-react": "6.1.0",
+    "typescript": "7.0.2",
+    "vite": "8.3.5"
+  }
+}
