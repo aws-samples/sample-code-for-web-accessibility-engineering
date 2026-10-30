@@ -1,4 +1,4 @@
-# RelayOps现场服务a11y案例
+# 从“只念12.6%”到可回归验证：运用AI-DLC方法论，用Kiro构建Web无障碍工程闭环
 
 这是为公开技术文章从零设计的React + MUI现场服务运营工作台。产品、品牌、结构、数据和视觉风格均为虚构；它只复现常见的Web无障碍问题类型。
 
@@ -40,7 +40,7 @@ npm run test:a11y:gate
 
 ## 3. 用Kiro Spec实施
 
-1. 用Kiro IDE直接打开本目录`a11y-field-operations-case-study/`，使它成为workspace根目录；不要只打开上层目录；
+1. 用Kiro IDE直接打开**仓库根目录**，使它成为workspace根目录；不要只打开它的上层目录；
 2. 确认workspace根目录下可见`.kiro/steering/a11y.md`；Kiro会自动加载它，不需要手工include；
 3. 在Chat输入框的模式选择器中切换到Spec；
 4. 将`spec-prompt.md`内容粘贴到输入框并提交；
@@ -60,7 +60,7 @@ npm run test:a11y -- --reporter=list
 npm audit --audit-level=high
 ```
 
-实测结果：24/24门禁通过、0失败、0跳过；构建退出码0；探索套件报告axe 0类问题、0个未命名控件；npm audit为0漏洞。Kiro实际只修改`src/App.tsx`、`src/styles.css`和`src/theme.ts`，共17个改动块；`src/main.tsx`未变。完整Spec和精简验证摘要位于`.kiro/specs/a11y-audit-remediation/`；包含运行日志、截图和执行元数据的完整证据仅随内部代码审查材料提供，不进入公开仓库。
+实测结果：24/24门禁通过、0失败、0跳过；构建退出码0；探索套件报告axe 0类问题、0个未命名控件；npm audit为0漏洞。初始Kiro修复只修改`src/App.tsx`、`src/styles.css`和`src/theme.ts`，共17个改动块；`src/main.tsx`未变。完整Spec和精简验证摘要位于`.kiro/specs/a11y-audit-remediation/`。原始日志、截图和执行元数据未包含在本仓库中；测试新生成的产物由`.gitignore`排除。
 
 如果已切换到基线，请从代码包重新提取`src/`，或使用自己在切换前保存的副本恢复Kiro修复状态。
 
@@ -82,6 +82,8 @@ npm run test:voiceover
 ## 安全与支持
 
 本仓库是与技术文章配套的教育性示例，不是受支持的生产产品。采用前请结合自己的需求完成安全、性能、兼容性和无障碍评估。
+
+> This is sample code, for non-production usage. Work with your security and legal teams to meet your organizational requirements before deployment.
 
 安全问题请通过[AWS漏洞报告页面](https://aws.amazon.com/security/vulnerability-reporting/)提交，不要创建公开GitHub Issue。
 

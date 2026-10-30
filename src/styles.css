@@ -32,11 +32,12 @@ body { margin: 0; background: #f2ede4; }
 .job-row { display: grid !important; grid-template-columns: auto 1fr auto; align-items: center; text-align: left !important; padding: 14px !important; border: 1px solid #e8dfd2 !important; border-radius: 16px !important; color: #272722 !important; background: #fffdf9 !important; }
 .job-icon { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 12px; background: #e6efe8; color: #2f6847; }
 .job-icon.urgent { background: #f9dfd5; color: #b33a20; }
-.job-copy { padding: 0 13px; }
+.job-copy { padding: 0 13px; display: flex; flex-direction: column; align-items: flex-start; }
 .job-site { font-weight: 700 !important; font-size: 14px !important; }
 .job-task { color: #777168; font-size: 12.5px !important; margin-top: 2px !important; }
-.job-meta { text-align: right; color: #5a564f; font-size: 11px; }
-.job-meta p:last-child { display: flex; align-items: center; justify-content: flex-end; gap: 3px; margin-top: 5px; }
+.job-status { margin-top: 5px !important; padding: 1px 7px; border: 1px solid currentColor; border-radius: 999px; color: #8f2f1b; font-size: 10px !important; font-weight: 700 !important; line-height: 1.5 !important; text-transform: uppercase; letter-spacing: .04em !important; }
+.job-meta { text-align: right; color: #5a564f; font-size: 11px; display: flex; flex-direction: column; align-items: flex-end; }
+.job-meta span:last-child { display: flex; align-items: center; justify-content: flex-end; gap: 3px; margin-top: 5px; }
 .view-all { border-top: 1px solid #e4dbcf !important; border-radius: 0 !important; padding-top: 14px !important; color: #315e48 !important; }
 .territory-canvas { height: 210px; margin: 18px 0; position: relative; border-radius: 18px; background: #e9e1d5; overflow: hidden; }
 .territory-canvas::before, .territory-canvas::after { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(67,82,72,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(67,82,72,.08) 1px, transparent 1px); background-size: 34px 34px; }

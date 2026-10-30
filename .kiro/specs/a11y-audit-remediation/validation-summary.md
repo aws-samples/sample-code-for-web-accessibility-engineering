@@ -1,6 +1,6 @@
 # Validation summary
 
-Final Kiro run on macOS, 2026-10-29. Full raw logs, screenshots, VoiceOver transcripts, reviewer records, and task execution metadata are retained in the internal review package and are not part of the public repository.
+Final Kiro run on macOS, 2026-10-29. Raw logs, screenshots, VoiceOver transcripts, reviewer records, and task execution metadata are not included in this repository. Test-generated artifacts are excluded through `.gitignore`.
 
 | Check | Baseline | Remediated |
 | --- | --- | --- |
@@ -11,3 +11,11 @@ Final Kiro run on macOS, 2026-10-29. Full raw logs, screenshots, VoiceOver trans
 | VoiceOver | `SLA RISK` followed by `12.6%` | `SLA RISK` followed by `Increased 12.6%` |
 
 Product-source changes relative to `reference/baseline/` are limited to `src/App.tsx`, `src/styles.css`, and `src/theme.ts`. `src/main.tsx` is unchanged. The 17 source hunks map to the approved requirements.
+
+## Post-review follow-up (2026-10-30)
+
+The original Kiro Spec above records the 2026-10-29 run. A subsequent peer-review follow-up:
+
+- renders all `Typography` elements inside work-order buttons as inline `span` elements;
+- exposes the `WO-1842` urgent state as visible text instead of color alone;
+- extends the existing work-order regression test to enforce both conditions.

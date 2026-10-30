@@ -203,8 +203,10 @@ test.describe('A: names and structure', () => {
           selfFocusable: child.matches(focusableSel),
           buttonCount: buttons.length,
           extraFocusables: extra,
+          paragraphCount: child.querySelectorAll('button p').length,
           site: (child.querySelector('.job-site')?.textContent ?? '').replace(/\s+/g, ' ').trim(),
           task: (child.querySelector('.job-task')?.textContent ?? '').replace(/\s+/g, ' ').trim(),
+          status: (child.querySelector('.job-status')?.textContent ?? '').replace(/\s+/g, ' ').trim(),
         };
       });
     }, FOCUSABLE);
@@ -219,6 +221,9 @@ test.describe('A: names and structure', () => {
       if (item.role) problems.push(`${label}: <${item.tag}> carries role="${item.role}" (must stay listitem)`);
       if (item.selfFocusable) problems.push(`${label}: list item itself is focusable / button-like`);
       if (item.buttonCount !== 1) problems.push(`${label}: expected exactly 1 <button>, found ${item.buttonCount}`);
+      if (item.paragraphCount !== 0) problems.push(`${label}: button contains ${item.paragraphCount} <p> element(s), expected inline content`);
+      if (index === 0 && item.status !== 'Urgent') problems.push(`${label}: urgent status must be visible text`);
+      if (index > 0 && item.status) problems.push(`${label}: unexpected status text "${item.status}"`);
       if (item.extraFocusables.length > 0) {
         problems.push(`${label}: extra focusable descendants: ${item.extraFocusables.join(', ')}`);
       }
@@ -231,6 +236,7 @@ test.describe('A: names and structure', () => {
       const missing: string[] = [];
       if (!item.site || !name.includes(item.site)) missing.push(`site "${item.site}"`);
       if (!item.task || !name.includes(item.task)) missing.push(`task "${item.task}"`);
+      if (index === 0 && !name.includes('Urgent')) missing.push('status "Urgent"');
       if (!/WO-\d{4}/.test(name)) missing.push('WO-\\d{4}');
       if (!/\d{2}:\d{2}/.test(name)) missing.push('\\d{2}:\\d{2}');
       if (missing.length > 0) problems.push(`${label}: button name "${name}" missing ${missing.join(', ')}`);
