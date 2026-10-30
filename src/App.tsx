@@ -120,8 +120,15 @@ export default function App() {
                   <Box component="li" key={job.id} sx={{ listStyle: 'none' }}>
                     <Button fullWidth className="job-row">
                       <Box className={`job-icon ${job.tone}`}><Build fontSize="small" /></Box>
-                      <Box className="job-copy"><Typography className="job-site">{job.site}</Typography><Typography className="job-task">{job.task}</Typography></Box>
-                      <Box className="job-meta"><Typography>{job.id}</Typography><Typography><AccessTime fontSize="inherit" /> {job.time}</Typography></Box>
+                      <Box className="job-copy">
+                        <Typography component="span" className="job-site">{job.site}</Typography>
+                        <Typography component="span" className="job-task">{job.task}</Typography>
+                        {job.tone === 'urgent' && <Typography component="span" className="job-status">Urgent</Typography>}
+                      </Box>
+                      <Box className="job-meta">
+                        <Typography component="span">{job.id}</Typography>
+                        <Typography component="span"><AccessTime fontSize="inherit" /> {job.time}</Typography>
+                      </Box>
                     </Button>
                   </Box>
                 ))}
