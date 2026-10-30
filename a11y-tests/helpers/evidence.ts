@@ -262,7 +262,7 @@ export type MetaInput = {
   date?: Date;
 };
 
-const escapeCell = (s: string) => s.replace(/\|/g, '\\|').replace(/\r?\n/g, ' / ');
+const escapeCell = (s: string) => s.replace(/\\/g, '\\\\').replace(/\|/g, '\\|').replace(/\r?\n/g, ' / ');
 
 /** Builds the unified `.meta.md` content (Req 13.4 / 15.5 fields + optional extras). */
 export function formatMeta(input: MetaInput): string {
